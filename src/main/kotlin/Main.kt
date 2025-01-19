@@ -12,7 +12,6 @@ fun main(args: Array<String>) {
     val input = if (args.isNotEmpty()) File(args[0]).readLines() else readInput()
     val teams = calculateLeagueTable(input)
     printRankingTable(teams)
-    println("DONE!")
 }
 
 private fun readInput(): List<String> {
