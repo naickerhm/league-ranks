@@ -40,26 +40,6 @@ fun calculateLeagueTable(input: List<String>): List<Team> {
     return teamMap.values.sortedWith(compareByDescending<Team> { it.points }.thenBy { it.name })
 }
 
-//private fun parseMatch2(line: String): List<String> {
-//    val matchRegex = Regex("(.+) (\\d+), (.+) (\\d+)")
-//    val match = matchRegex.matchEntire(line.trim())
-//        ?: throw IllegalArgumentException("Invalid input format: $line")
-//    return match.destructured.toList()
-//}
-
-fun parseMatch3(line: String): List<String> {
-    val parts = line.split(", ")
-    if (parts.size != 2) throw IllegalArgumentException("Invalid input format: $line")
-
-    val team1 = parts[0].substringBeforeLast(" ")
-    val score1 = parts[0].substringAfterLast(" ")
-    val team2 = parts[1].substringBeforeLast(" ")
-    val score2 = parts[1].substringAfterLast(" ")
-
-    return listOf(team1, score1, team2, score2)
-}
-
-
 fun parseMatch(line: String): Match {
     val matchRegex = Regex("(.+) (\\d+), (.+) (\\d+)")
     val match = matchRegex.matchEntire(line.trim())
@@ -82,8 +62,3 @@ private fun printRankingTable(teams: List<Team>) {
         println("$rank. ${team.name}, ${team.points} $pointLabel")
     }
 }
-//Lions 3, Snakes 3
-//Tarantulas 1, FC Awesome 0
-//Lions 1, FC Awesome 1
-//Tarantulas 3, Snakes 1
-//Lions 4, Grouches 0
