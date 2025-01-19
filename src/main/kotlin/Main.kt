@@ -2,12 +2,6 @@ package org.example
 
 import java.io.File
 
-
-data class Team(val name: String, var points: Int = 0)
-
-data class Match(val team1: String, val score1: Int, val team2: String, val score2: Int)
-
-
 fun main(args: Array<String>) {
     val input = if (args.isNotEmpty()) File(args[0]).readLines() else readInput()
     val teams = calculateLeagueTable(input)
